@@ -36,11 +36,11 @@ penguins_raw <- read.csv("data_raw/penguins_raw.csv")
 penguins_clean <- cleaning(penguins_raw) 
 write.csv(penguins_clean, "data_clean/penguins_clean.csv")
 
-# filter it
+# filter it - subset
 massXclength <- A_mass_clength(penguins_clean)
 
 #------------PLOT (& PLOT FUNC)--------------------
-#plot A. male body mass depending on island
+#plot Adelie male body mass & culmen length, colour-coded depending on island
 plot_A_mass_clength <- function(massXclength){
   massXclength %>%
     ggplot( aes(x = body_mass_g, y = culmen_length_mm)) +
@@ -65,7 +65,7 @@ summary(model1)
 save_massXclength_plot_svg <- function(massXclength, filename, size, scaling){
   size_inches = size/2.54
   svglite(filename, width = size_inches, height = size_inches, scaling = scaling)
-  massXclength_plot <- plot_flipper_figure(penguins_flippers)
+  massXclength_plot <- plot_A_mass_clength(massXclength)
   print(massXclength_plot)
   dev.off()
 }
