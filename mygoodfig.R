@@ -73,5 +73,5 @@ save_massXclength_plot_svg <- function(massXclength, filename, size, scaling){
 
 
 # Save the plot as a vector (no resolution needed)
-save_flipper_plot_svg(penguins_flippers, "figures/fig01_vector.svg", 
+save_massXclength_plot_svg(massXclength, "figures/fig1_vector.svg", 
                       size = 15, scaling = 1)
