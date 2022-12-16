@@ -19,6 +19,10 @@ suppressPackageStartupMessages(library(janitor))
 suppressPackageStartupMessages(library(dplyr))
 library(tidyr)
 library(svglite)
+
+#alternatively, can load the packages from a pre-saved r script 
+#in format:
+#source(libraries.r, "functions/ libraries.r")
 ```
 
 **FUNCTIONS**
