@@ -94,6 +94,15 @@ AG_MxCL_plot
 
 ```
 
+
+```{r }
+#Conduct a statistical test - ANOVA
+
+lm_AG_MxCL <- lm(body_mass_g ~ culmen_length_mm, AG_MxCL) #creates a linear model
+anova(lm_AG_MxCL) # carry out the ANOVA test; work out significance based on P value and F value
+
+```
+
 ```{r }
 #save as a svg.
 save_AG_MxCL_plot_svg(AG_MxCL_plot, "figures/AG_MxCL_vector.svg", 
