@@ -26,7 +26,7 @@ library(svglite)
 ```
 
 **FUNCTIONS**
-#load functions
+# load functions
 ```{r }
 cleaning <- function(data_raw){
   data_raw %>%
@@ -36,11 +36,14 @@ cleaning <- function(data_raw){
     select(-comments)
 }
 
+# Function filters for penguins only on Biscoe Island and removes any NA in bodymass
 AxG_massXclength <- function(data_clean){
   data_clean %>%
     filter(!is.na(body_mass_g), island == "Biscoe") %>%
     select(species, body_mass_g, culmen_length_mm)
 }
+#Similarly, as before coulld also
+#source(cleaning.r, "functions/cleaning.r")
 ```
 
 # load functions - plotting
@@ -51,14 +54,16 @@ plot_AG_MxCL_fig <- function(AG_MxCL){
     ggtitle("The relationship between body mass and culmen length of penguins on Biscoe Island") +
         geom_smooth(method = "lm" ) +
     geom_point(aes(color = species) , alpha = 0.4, show.legend = TRUE) +
-    scale_color_manual(values = c("blue","purple")) +
+    scale_color_manual(values = c("orange","purple")) +
     labs(x = "Body mass (g)", 
         y = "Culmen length (mm)") +
     theme_bw()
 }
+#Alternatively
+#source(plotting.r, "functions/plotting.r")
 ```
 
-# load function - saving a svg.
+# load function - saving a svg. => as a vector so can be zoomed into without becoming blurry
 ```{r }
 save_AG_MxCL_plot_svg <- function(AG_MxCL, filename, size, scaling){
   size_inches = size/2.54
@@ -67,6 +72,8 @@ save_AG_MxCL_plot_svg <- function(AG_MxCL, filename, size, scaling){
   print(massXclength_plot)
   dev.off()
 }
+#Alternatively
+##source(saving.r, "functions/saving.r")
 ```
 
 
